@@ -14,6 +14,7 @@ public class LottoGame extends SurfaceView implements SurfaceHolder.Callback{
 
     private final Player player;
     private final JoyStick joystick;
+    private final NonPlayerCharacter nonPlayerCharacter;
     private GameLoop gameLoop;
     //private Context context;
 
@@ -29,8 +30,8 @@ public class LottoGame extends SurfaceView implements SurfaceHolder.Callback{
 
         // Initialize Player
         joystick = new JoyStick(275, 350, 70, 40);
-        player = new Player(getContext(), 500, 500, 30);
-
+        player = new Player(getContext(), joystick, 500, 500, 30);
+        nonPlayerCharacter = new NonPlayerCharacter();
         setFocusable(true);
     }
 
@@ -106,6 +107,6 @@ public class LottoGame extends SurfaceView implements SurfaceHolder.Callback{
     public void update() {
         // Update the game state
         joystick.update();
-        player.update(joystick);
+        player.update();
     }
 }
