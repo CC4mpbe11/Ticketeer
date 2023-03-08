@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 
 class GameLoop extends Thread{
-    private static final double MAX_UPS = 60.0;
+    private static final double MAX_UPS = 30.0;
     private static final double UPS_PERIOD = 1E+3/MAX_UPS;
     private LottoGame lottoGame;
     private boolean isRunning = false;
@@ -68,9 +68,6 @@ class GameLoop extends Thread{
                     }
                 }
             }
-
-
-
 
             elapsedTime = System.currentTimeMillis() - startTime;
             sleepTime = (long) (updateCount*UPS_PERIOD - elapsedTime);
